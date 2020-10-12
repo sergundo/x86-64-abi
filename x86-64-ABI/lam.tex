@@ -1,0 +1,89 @@
+%%% vim:ai:tw=72:
+\chapter{Intel LAM Extension}
+
+\section{Intel LAM}
+
+Intel LAM (Linear Address Masking) Extension allows software to locate
+metadata in data pointers and dereference them without needing to mask
+the metadata bits.  It supports:
+
+\begin{description}
+  \item[LAM_U48] Activate LAM for user data pointers and use of bits
+    62:48 as masked metadata.
+  \item[LAM_U57] Activate LAM for user data pointers and use of bits
+    62:57 as masked metadata.
+\end{description}
+
+\section{Program Loading}
+
+\subsection{Process \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48}}
+\label{lam_u48}
+
+On an LAM capable processor, the following steps should be taken:
+
+\begin{enumerate}
+  \item
+    \begin{sloppypar}
+      When loading an executable without interpreter, enable LAM_U48
+      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} is set on the
+      executable.
+    \end{sloppypar}
+  \item
+    \begin{sloppypar}
+      When loading an executable with an interpreter, enable LAM_U48
+      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} is set on the
+      interpreter.  The interpreter should disable LAM_U48 if
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} isn't set on the
+      executable or any shared objects loaded via the \code{DT_NEEDED}
+      tag.
+    \end{sloppypar}
+  \item
+    \begin{sloppypar}
+      After LAM_U48 is enabled, when loading a shared object without
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48}:
+      \begin{enumerate}
+	\item If legacy interwork is allowed, LAM_U48 should be disabled.
+	\item If legacy interwork isn't allowed, it causes an error.
+      \end{enumerate}
+    \end{sloppypar}
+\end{enumerate}
+
+\subsection{Process \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57}}
+\label{lam_u57}
+
+On an LAM capable processor, the following steps should be taken:
+
+\begin{enumerate}
+  \item
+    \begin{sloppypar}
+      When loading an executable without interpreter, enable LAM_U57
+      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} is set on the
+      executable.
+    \end{sloppypar}
+  \item
+    \begin{sloppypar}
+      When loading an executable with an interpreter, enable LAM_U57
+      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} is set on the
+      interpreter.  The interpreter should disable LAM_U57 if
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} isn't set on the
+      executable or any shared objects loaded via the \code{DT_NEEDED}
+      tag.
+    \end{sloppypar}
+  \item
+    \begin{sloppypar}
+      After LAM_U57 is enabled, when loading a shared object without
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57}:
+      \begin{enumerate}
+	\item If legacy interwork is allowed, LAM_U57 should be disabled.
+	\item If legacy interwork isn't allowed, it causes an error.
+      \end{enumerate}
+    \end{sloppypar}
+\end{enumerate}
+
+\code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} implies
+\code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57}.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "abi"
+%%% End:

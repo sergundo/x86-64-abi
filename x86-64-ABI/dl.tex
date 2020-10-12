@@ -493,6 +493,8 @@ The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
       \hline
      \texttt{GNU_PROPERTY_X86_FEATURE_1_IBT} & \texttt{1U << 0} \\
      \texttt{GNU_PROPERTY_X86_FEATURE_1_SHSTK} & \texttt{1U << 1} \\
+     \texttt{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} & \texttt{1U << 2} \\
+     \texttt{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} & \texttt{1U << 3} \\
     \end{tabular}
   \end{center}
 \Hrule
@@ -507,6 +509,10 @@ The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
    executable sections are compatible with SHSTK (see Section~\ref{shstk})
    where return address popped from shadow stack always matches return
    address popped from normal stack.
+ \item[GNU_PROPERTY_X86_FEATURE_1_LAM_U48] This indicates that all
+   sections are compatible with LAM_U48 (see Section~\ref{lam_u48}).
+ \item[GNU_PROPERTY_X86_FEATURE_1_LAM_U57] This indicates that all
+   sections are compatible with LAM_U57 (see Section~\ref{lam_u57}).
 \end{description}
 
 The following bits are defined for \code{GNU_PROPERTY_X86_ISA_1_USED}
