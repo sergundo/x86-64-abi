@@ -69,7 +69,7 @@ The \xARCH instruction encoding supports converting certain instructions
 on memory operand with \texttt{R_X86_64_GOTPCRELX} or
 \texttt{R_X86_64_REX_GOTPCRELX} relocations against symbol, \texttt{foo},
 into a different form on immediate operand if \texttt{foo} is defined
-locally.
+locally and the relocation addend is -4.
 
 \begin{description}
 \item[\textindex{Convert call and jmp}]
