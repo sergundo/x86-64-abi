@@ -809,7 +809,8 @@ be the \code{exceptionObject} pointer, which must be preserved to be passed to
 
 The landing pad may receive other arguments, for instance a switch value
 indicating the type of the exception. Four scratch registers are reserved
-for this use (\RDI, \RSI, \RDX, \RCX).
+for this use (\RDI, \RSI, \RDX, \RCX) \footnote{GCC uses \RAX and \RDX
+instead.}.
 
 \subsubsection{Rules for Correct Inter-Language Operation}
 
