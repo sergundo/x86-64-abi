@@ -274,6 +274,34 @@ but otherwise behave identically.  The only exceptions are that
 \code{__m128}, \code{__m256} and \code{__m512} must always be aligned
 properly.
 
+\subsubsection{Fundamental Types of N-bit Integers}
+
+\texttt{_BitInt(N)} from ISO/IEC WG14 N2763, where \code{N} is an
+integral constant expression representing the exact number of bits to
+be used to represent the type, is a family of integer types.
+
+\begin{itemize}
+ \item \texttt{_BitInt(N)} types are signed by default, and
+  \texttt{unsigned _BitInt(N)} types are unsigned.
+ \item \texttt{_BitInt(N)} types are stored in little-endian order in
+  memory.  Bits in each byte are allocated from right to left.
+ \item For N <= 64, they have the same size and alignment as
+  the smallest of (signed and unsigned) \code{char}, \code{short},
+  \code{int}, \code{long} and \code{long long} types that can contain
+  them.
+ \item For N > 64, they are treated as struct of 64-bit integer
+  chunks.  The number of chunks is the smallest number that can contain
+  the type.  \texttt{_BitInt(N)} types are byte-aligned to the next
+  greatest power-of-2 up to 64 bits.  The size of these types is the
+  smallest multiple of the 64-bit chunks greater than or equal to N.
+  \item The value of the unused bits beyond the width of the
+   \texttt{_BitInt(N)} value but within the size of the
+   \texttt{_BitInt(N)} are unspecified when stored in memory or register.
+\end{itemize}
+
+This permits the use of these types in allocated arrays using the common
+sizeof(Array)/sizeof(ElementType) pattern.
+
 \subsubsection{Aggregates and Unions}
 
 Structures and unions assume the alignment of their most strictly
@@ -562,6 +590,12 @@ typedef struct {
 \end{verbatim}
 with the exception that arguments of type \code{__int128} that are
 stored in memory must be aligned on a 16-byte boundary.
+
+\item Arguments of type \code{_BitInt(N)} with N <= 64 are in the
+INTEGER class.
+
+\item Arguments of type \code{_BitInt(N)} with N > 64 are classified
+as if they were implemented as struct of 64-bit integer fields.
 
 \item Arguments of \code{complex T} where \code{T} is one of the types
   \code{_Float16, float, double or __float128} are treated as if they are
