@@ -33,7 +33,8 @@ the following differences:
   sequence \RDI, \RSI, \RDX, \RCX, \reg{r8} and \reg{r9}.  The kernel
   interface uses \RDI, \RSI, \RDX, \reg{r10}, \reg{r8} and \reg{r9}.
 \item A system-call is done via the \code{syscall} instruction.  The
-  kernel destroys registers \RCX and \reg{r11}.
+  kernel clobbers registers \RCX and \reg{r11} but preserves all other
+  registers except \RAX.
 \item The number of the syscall has to be passed in register \RAX.
 \item System-calls are limited to six arguments, no argument is passed
   directly on the stack.
