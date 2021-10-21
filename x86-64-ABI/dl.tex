@@ -516,17 +516,22 @@ The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND},
  \item[GNU_PROPERTY_X86_FEATURE_1_IBT] This indicates that all executable
    sections are compatible with IBT (see Section~\ref{ibt}) when
    \code{endbr64} instruction starts each valid target where an indirect
-   branch instruction can land.
+   branch instruction can land.  This bit is ignored in
+   \code{GNU_PROPERTY_X86_FEATURE_1_OR}.
  \item[GNU_PROPERTY_X86_FEATURE_1_SHSTK] This indicates that all
    executable sections are compatible with SHSTK (see Section~\ref{shstk})
    where return address popped from shadow stack always matches return
-   address popped from normal stack.
+   address popped from normal stack.  This bit is ignored in
+   \code{GNU_PROPERTY_X86_FEATURE_1_OR}.
  \item[GNU_PROPERTY_X86_FEATURE_1_LAM_U48] This indicates that all
    sections are compatible with LAM_U48 (see Section~\ref{lam_u48}).
+   This bit is ignored in \code{GNU_PROPERTY_X86_FEATURE_1_OR}.
  \item[GNU_PROPERTY_X86_FEATURE_1_LAM_U57] This indicates that all
    sections are compatible with LAM_U57 (see Section~\ref{lam_u57}).
+   This bit is ignored in \code{GNU_PROPERTY_X86_FEATURE_1_OR}.
  \item[GNU_PROPERTY_X86_FEATURE_1_WRSS] This indicates that some
    sections use WRSS instruction (see Section~\ref{wrss}).
+   This bit is ignored in \code{GNU_PROPERTY_X86_FEATURE_1_AND}.
 \end{description}
 
 The following bits are defined for \code{GNU_PROPERTY_X86_ISA_1_USED}
