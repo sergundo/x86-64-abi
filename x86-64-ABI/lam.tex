@@ -25,25 +25,34 @@ On an LAM capable processor, the following steps should be taken:
   \item
     \begin{sloppypar}
       When loading an executable without interpreter, enable LAM_U48
-      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} is set on the
-      executable.
+      if the \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} bit in
+      \code{GNU_PROPERTY_X86_FEATURE_1_AND} is set on the executable.
     \end{sloppypar}
   \item
     \begin{sloppypar}
       When loading an executable with an interpreter, enable LAM_U48
-      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} is set on the
-      interpreter.  The interpreter should disable LAM_U48 if
-      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} isn't set on the
+      if the \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} bit in
+      \code{GNU_PROPERTY_X86_FEATURE_1_AND} is set on the
+      interpreter.  The interpreter should disable LAM_U48 if the
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} bit in
+       \code{GNU_PROPERTY_X86_FEATURE_1_AND} isn't set on the
       executable or any shared objects loaded via the \code{DT_NEEDED}
       tag.
     \end{sloppypar}
+   \item If the \code{GNU_PROPERTY_X86_FEATURE_1_LAN_U48} bit in
+     \code{GNU_PROPERTY_X86_FEATURE_1_PERMISSIVE} is set on the
+     executable or any shared objects loaded via the
+     \code{DT_NEEDED} tag, allow legacy LAM_U48 interwork.
   \item
     \begin{sloppypar}
-      After LAM_U48 is enabled, when loading a shared object without
-      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48}:
+      After LAM_U48 is enabled, when loading a shared object with the
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} bit unset in
+      \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
       \begin{enumerate}
-	\item If legacy interwork is allowed, LAM_U48 should be disabled.
-	\item If legacy interwork isn't allowed, it causes an error.
+	\item If legacy LAM_U48 interwork is allowed, LAM_U48 should be
+	  disabled.
+	\item If legacy LAM_u48 interwork isn't allowed, it causes an
+	  error.
       \end{enumerate}
     \end{sloppypar}
 \end{enumerate}
@@ -57,25 +66,34 @@ On an LAM capable processor, the following steps should be taken:
   \item
     \begin{sloppypar}
       When loading an executable without interpreter, enable LAM_U57
-      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} is set on the
-      executable.
+      if the \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} bit in
+       \code{GNU_PROPERTY_X86_FEATURE_1_AND} is set on the executable.
     \end{sloppypar}
   \item
     \begin{sloppypar}
       When loading an executable with an interpreter, enable LAM_U57
-      if \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} is set on the
-      interpreter.  The interpreter should disable LAM_U57 if
-      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} isn't set on the
+      if the \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} bit in
+      \code{GNU_PROPERTY_X86_FEATURE_1_AND} is set on the
+      interpreter.  The interpreter should disable LAM_U57 if the
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} bit in
+      \code{GNU_PROPERTY_X86_FEATURE_1_AND} isn't set on the
       executable or any shared objects loaded via the \code{DT_NEEDED}
       tag.
     \end{sloppypar}
+   \item If the \code{GNU_PROPERTY_X86_FEATURE_1_LAN_U57} bit in
+     \code{GNU_PROPERTY_X86_FEATURE_1_PERMISSIVE} is set on the
+     executable or any shared objects loaded via the
+     \code{DT_NEEDED} tag, allow legacy LAM_U57 interwork.
   \item
     \begin{sloppypar}
-      After LAM_U57 is enabled, when loading a shared object without
-      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57}:
+      After LAM_U57 is enabled, when loading a shared object with the
+      \code{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} bit unset in
+      \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
       \begin{enumerate}
-	\item If legacy interwork is allowed, LAM_U57 should be disabled.
-	\item If legacy interwork isn't allowed, it causes an error.
+	\item If legacy LAM_U57 interwork is allowed, LAM_U57 should be
+	  disabled.
+	\item If legacy LAM_u57 interwork isn't allowed, it causes an
+	  error.
       \end{enumerate}
     \end{sloppypar}
 \end{enumerate}
