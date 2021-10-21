@@ -452,6 +452,10 @@ The following property types are defined:
      \texttt{GNU_PROPERTY_X86_UINT32_OR_AND_LO + 2} \\
      \texttt{GNU_PROPERTY_X86_ISA_1_NEEDED} &
      \texttt{GNU_PROPERTY_X86_UINT32_OR_LO + 2} \\
+     \texttt{GNU_PROPERTY_X86_FEATURE_1_OR} &
+     \texttt{GNU_PROPERTY_X86_UINT32_OR_LO + 3} \\
+     \texttt{GNU_PROPERTY_X86_FEATURE_1_PERMISSIVE} &
+     \texttt{GNU_PROPERTY_X86_UINT32_OR_LO + 4} \\
     \end{tabular}
   \end{center}
 \Hrule
@@ -459,7 +463,7 @@ The following property types are defined:
 
 \begin{description}
  \item[GNU_PROPERTY_X86_FEATURE_1_AND] The x86 processor features
-   indicated by the corresponding bits are used in program.
+   indicated by the corresponding bits are used in the whole program.
  \item[GNU_PROPERTY_X86_FEATURE_2_USED] The x86 processor features
    indicated by the corresponding bits are used in program.  Their
    support in the hardware is optional.  Its absence in an x86 ELF
@@ -480,9 +484,16 @@ The following property types are defined:
    supported by the hardware.  Loader may refuse to load the program
    whose \texttt{GNU_PROPERTY_X86_ISA_1_NEEDED} ISAs aren't supported
    by the hardware.
+ \item[GNU_PROPERTY_X86_FEATURE_1_OR] The x86 processor features
+   indicated by the corresponding bits are used in parts of the program.
+ \item[GNU_PROPERTY_X86_FEATURE_1_PERMISSIVE] The x86 processor features
+   indicated by the corresponding bits should be enabled permissively
+   at run-time.
 \end{description}
 
-The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
+The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND},
+\code{GNU_PROPERTY_X86_FEATURE_1_OR} and
+\code{GNU_PROPERTY_X86_FEATURE_1_PERMISSIVE}:
 
 \begin{table}[H]
 \Hrule
@@ -495,6 +506,7 @@ The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
      \texttt{GNU_PROPERTY_X86_FEATURE_1_SHSTK} & \texttt{1U << 1} \\
      \texttt{GNU_PROPERTY_X86_FEATURE_1_LAM_U48} & \texttt{1U << 2} \\
      \texttt{GNU_PROPERTY_X86_FEATURE_1_LAM_U57} & \texttt{1U << 3} \\
+     \texttt{GNU_PROPERTY_X86_FEATURE_1_WRSS} & \texttt{1U << 4} \\
     \end{tabular}
   \end{center}
 \Hrule
@@ -513,6 +525,8 @@ The following bits are defined for \code{GNU_PROPERTY_X86_FEATURE_1_AND}:
    sections are compatible with LAM_U48 (see Section~\ref{lam_u48}).
  \item[GNU_PROPERTY_X86_FEATURE_1_LAM_U57] This indicates that all
    sections are compatible with LAM_U57 (see Section~\ref{lam_u57}).
+ \item[GNU_PROPERTY_X86_FEATURE_1_WRSS] This indicates that some
+   sections use WRSS instruction (see Section~\ref{wrss}).
 \end{description}
 
 The following bits are defined for \code{GNU_PROPERTY_X86_ISA_1_USED}
