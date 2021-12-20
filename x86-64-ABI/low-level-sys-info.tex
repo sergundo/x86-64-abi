@@ -612,7 +612,8 @@ types works as follows:
     classified separately.  Each \eightbyte gets initialized to class NO_CLASS.
 
 \item Each field of an object is classified recursively so that always
-   two fields are considered.  The resulting class is calculated
+   two fields \footnote{Zero-width bit-fields are NO_CLASS.} are
+   considered.  The resulting class is calculated
    according to the classes of the fields in the \eightbyte:
    \begin{enumerate}
    \item
