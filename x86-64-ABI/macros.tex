@@ -55,7 +55,12 @@
         \global\multiply\minutes by-1 }
 \SetTime
 \def\thistime{\number\hours:\ifnum\minutes<10 0\fi\number\minutes}
-\usepackage[time]{prelim2e}
+% Use prelim2e-v2.00 if IfFormatAtLeastTF is available.
+\ifcsname IfFormatAtLeastTF\endcsname
+  \usepackage[time]{prelim2e-v2.00}
+\else
+  \usepackage[time]{prelim2e}
+\fi
 \renewcommand{\PrelimWords}{AMD64 ABI \version}
 
 % Some commands:
