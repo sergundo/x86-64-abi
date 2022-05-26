@@ -86,7 +86,7 @@ to be installed into the directory
 distributions with a multi-arch file system layout).  In order to
 support systems that only implement the K8 baseline, a fallback
 implementation must be installed into the default locations,
-\path{/usr/lib64} or \path{/usr/lib/x66_64-linux/gnu}.  It has to be
+\path{/usr/lib64} or \path{/usr/lib/x86_64-linux-gnu}.  It has to be
 built with \texttt{-march=x86-64} (the upstream GCC default).  If this
 guideline is not followed, loading the library will fail on systems
 that do not support the level for which the optimized shared object
