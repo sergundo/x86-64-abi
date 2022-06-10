@@ -302,6 +302,16 @@ be used to represent the type, is a family of integer types.
 This permits the use of these types in allocated arrays using the common
 sizeof(Array)/sizeof(ElementType) pattern.
 
+\subsubsection{Special Types}
+
+The \code{__bf16}\footnote{This type is used in \code{BF16} intrinsics.} type
+is an alternate encoding format for 16-bit float with 8-bit exponent and 7-bit
+mantissa. \code{__bf16} represents Brain Floating Point Format\footnote{This
+  type is used to accelerate machine learning (deep learning training,
+  in particular) algorithms.} which is a truncated (16-bit) version of the
+32-bit IEEE 754 single-precision floating-point format. It has the same size,
+alignment, parameter passing and return rules as _Float16.
+
 \subsubsection{Aggregates and Unions}
 
 Structures and unions assume the alignment of their most strictly
