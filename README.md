@@ -1,5 +1,7 @@
 # ELF x86-64-ABI psABI
 
+Download latest PDF: https://gitlab.com/x86-psABIs/x86-64-ABI/-/jobs/artifacts/master/raw/x86-64-ABI/abi.pdf?job=build
+
 ## x86-64-ABI/ directory
 These are the ELF x86-64 psABI LaTeX sources including
 full history from the former subversion repository at svn.x86-64.org,
