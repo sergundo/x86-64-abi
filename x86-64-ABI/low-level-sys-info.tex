@@ -291,8 +291,8 @@ be used to represent the type, is a family of integer types.
   them.
  \item For N > 64, they are treated as struct of 64-bit integer
   chunks.  The number of chunks is the smallest number that can contain
-  the type.  \texttt{_BitInt(N)} types are byte-aligned to the next
-  greatest power-of-2 up to 64 bits.  The size of these types is the
+  the type.  \texttt{_BitInt(N)} types are byte-aligned to 64 bits.
+  The size of these types is the
   smallest multiple of the 64-bit chunks greater than or equal to N.
   \item The value of the unused bits beyond the width of the
    \texttt{_BitInt(N)} value but within the size of the
